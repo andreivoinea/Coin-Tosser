@@ -1,0 +1,48 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Coin Tosser</title>
+    <style>
+        body {
+            background-color: powderblue;
+        }
+
+        div {
+            margin-bottom: 10px;
+        }
+
+        input:invalid + span:after {
+            content: '✖';
+            padding-left: 5px;
+        }
+
+        input:valid + span:after {
+            content: '✓';
+            padding-left: 5px;
+        }
+
+    </style>
+</head>
+
+<body>
+    <div>
+        <button type="button" name="heads"> Heads </button>
+        <button type="button" name="tails" disabled> Tails </button>
+    </div>
+
+    <div>
+        <input type="number" id="bet" name="bet" min="0.01" step="0.01" placeholder="input bet" required>
+        <span class="validity"></span>
+    </div>
+
+    <div>
+        <input type="submit">
+    </div>
+
+</body>
+</html>
+
+
+

@@ -1,4 +1,4 @@
-# Load Project using Visual Studio 2019 (Recommended) #
+# Load Project using Visual Studio 2019 #
  
  ### Step 1 ###
 Clone or Download the zip file to your computer

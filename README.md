@@ -1,4 +1,4 @@
-# <u>Load Project using Visual Studio 2019</u> #
+# <u>Load Project using Visual Studio 2019 (recommended) </u> #
  
  ### Step 0 ###
  

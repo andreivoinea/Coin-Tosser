@@ -40,8 +40,6 @@ function CreateServer() {
                     return;
                 }
 
-                console.log(file);
-
                 if (file.includes(".html")) { res.writeHead(200, { "Content-Type": "text/html" }); }
 
                 res.write(f);

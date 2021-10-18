@@ -45,16 +45,13 @@ async function GetPlayerData() {
     c.innerHTML = "Player Money: " + playerData.money;
     player.append(c);
 
-    var count = 1;
-
     if (playerData.bets.length > 0) {
 
         var l = document.createElement("ol");
 
         playerData.bets.forEach(bet => {
             var li = document.createElement("li");
-            li.innerHTML = count.toString() + ": " + bet.data.coin + " " + bet.data.bet + " " + ParseResult(bet.result);
-            count++;
+            li.innerHTML = bet.data.coin + " " + bet.data.bet + " " + ParseResult(bet.result);
             l.appendChild(li);
         });
 

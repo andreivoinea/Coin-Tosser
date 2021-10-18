@@ -1,3 +1,4 @@
+//unit test that handles the statistics module
 import 'jasmine';
 import { BetData} from "../server/player.js";
 

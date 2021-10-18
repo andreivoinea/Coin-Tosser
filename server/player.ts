@@ -1,4 +1,7 @@
-﻿export class BetData {
+﻿//This script is a container for class types
+
+//BetData represents data of a non-verified bet (sent by the player)
+export class BetData {
 
     bet: number;
     coin: string;
@@ -13,6 +16,7 @@
     }
 }
 
+//BetResponse represents data of a verified bet (sent by the server)
 export class BetResponse {
     data: BetData;
     result: boolean;
@@ -24,19 +28,11 @@ export class BetResponse {
 
 }
 
+//Player class holds all player information including all bets he did in the past
 export class Player {
     name: string;
     money: number;
     bets: Array<BetResponse>;
-
-    AddBet(bet: BetResponse, modify: boolean) {
-        this.bets.concat(this.bets, bet);
-        if (modify) this.ChangeMoney(bet.data.bet);
-    }
-
-    ChangeMoney(value: number) {
-        this.money += value;
-    }
 
     constructor(name: string, money: number, betList: Array<BetResponse>) {
         this.name = name;

@@ -1,35 +1,40 @@
+//This script handles the client side methods
 import { Player } from "./player.js";
 
+//variables that hold specific element items
 var heads;
 var tails;
 var bet;
 var error;
 
-GetVars();
+GetVars();//initializes the variables on start
 
+//tries to fill the elements from the document and handles player data
 function GetVars() {
     heads = <HTMLInputElement>document.getElementById("heads");
     tails = <HTMLInputElement>document.getElementById("tails");
     bet = <HTMLInputElement>document.getElementById("bet");
     error = document.getElementById("ERROR");
-    server("player");
+    server("player");//requests the player data
 }
 
+//async function for loading the player data
 async function GetPlayerData() {
 
-    while (document.body == null) {
+    while (document.body == null) {//waits for the page to load
 
         await new Promise((resolve) => {
             setTimeout(resolve, 1000);
         });
     }
 
-    var old = document.getElementById("player");
+    var old = document.getElementById("player");//remember if a player element is already created
 
+    //creates a new player element
     var player = document.createElement("div");
     player.id = "player";
 
-    while (playerData == null) {
+    while (playerData == null) {//waits for the playerData from the server side
         console.log("awaiting");
 
         await new Promise((resolve) => {
@@ -37,6 +42,7 @@ async function GetPlayerData() {
         });
     }
 
+    //creates specific element containers
     var c = document.createElement("div");
     c.innerHTML = "Player Name: " + playerData.name;
     player.append(c);
@@ -45,7 +51,7 @@ async function GetPlayerData() {
     c.innerHTML = "Player Money: " + playerData.money;
     player.append(c);
 
-    if (playerData.bets.length > 0) {
+    if (playerData.bets.length > 0) {//creates a list for all the past bets
 
         var l = document.createElement("ol");
 
@@ -58,17 +64,18 @@ async function GetPlayerData() {
         player.appendChild(l);
     }
 
-    if (typeof old !== "undefined" && old != null) old.parentNode.removeChild(old);
+    if (typeof old !== "undefined" && old != null) old.parentNode.removeChild(old);//if player element already exists, remove it before appending the new one
 
     document.body.appendChild(player);
 }
 
+//parses a result string from a bet result
 function ParseResult(result:boolean):string {
     if (result) return "Won!";
     return "Lost";
 }
 
-
+//handles toggle button for bet type selection
 function switchButton(button: string) {
 
     if (heads == null) GetVars();
@@ -89,6 +96,7 @@ function switchButton(button: string) {
 
 }
 
+//sends the current bet request to the server side
 function sendBet() {
 
     if (heads == null) GetVars();
@@ -105,8 +113,9 @@ function sendBet() {
     server(req);
 }
 
-var playerData = null;
+var playerData = null;//holds player variable
 
+//sends 'GET' request to the server side for handling
 function server(request:string) {
 
     var xhr = new XMLHttpRequest();
@@ -115,31 +124,28 @@ function server(request:string) {
 
         if (this.status == 200) {
             var data = this.responseText;
-
-            // we get the returned data
         }
 
-        if (data.includes("ERROR"))
+        if (data.includes("ERROR"))//handles an error response
         {
-            while (error == null)
+            while (error == null)//waits for the error element
             {
                 GetVars();
                 await new Promise((resolve) => {
                     setTimeout(resolve, 1000);
                 });
             }
-            error.innerHTML = data.substring(data.indexOf('/')+1);
+            error.innerHTML = data.substring(data.indexOf('/')+1);//sets the error element text to the error message
         }
         else
         {
             if(error!=null)
-            error.innerHTML = "";
+            error.innerHTML = "";//empties the error element on good response
 
-            playerData = JSON.parse(data) as Player;
-            if (typeof playerData !== "undefined" && playerData != null) GetPlayerData();
+            playerData = JSON.parse(data) as Player;//tries to parse the json data received as a Player class
+            if (typeof playerData !== "undefined" && playerData != null) GetPlayerData();//if a player was loaded, reload the UI
         }
 
-        // end of state change: it can be after some time (async)
     };
 
     xhr.open('GET', request, true);

@@ -19,9 +19,9 @@ export class BetData {
 //BetResponse represents data of a verified bet (sent by the server)
 export class BetResponse {
     data: BetData;
-    result: boolean;
+    result: number;
 
-    constructor(bet_value: number, bet_type: string, bet_result: boolean) {
+    constructor(bet_value: number, bet_type: string, bet_result: number) {
         this.data = new BetData(bet_value, bet_type);
         this.result = bet_result;
     }

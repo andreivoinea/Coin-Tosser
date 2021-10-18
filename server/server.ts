@@ -65,14 +65,15 @@ function CheckBet(bet: BetData):boolean {
     //0-6 means a heads win; 7 is a no win; 8-14 is a tails win and 7 is a no win 
     if ((result < 7 && bet.CheckCoin("heads")) || (result > 7 && bet.CheckCoin("tails"))) {
         p.money += bet.bet * 2;//on win players doubles the bet
-        p.bets.push(new BetResponse(bet.bet, bet.coin, true));
+        p.bets.push(new BetResponse(bet.bet, bet.coin, 1));
     }
     else
     {
         if (result != 7) {
             p.money -= bet.bet;//on lose player loses the bet
-            p.bets.push(new BetResponse(bet.bet, bet.coin, false));
+            p.bets.push(new BetResponse(bet.bet, bet.coin, -1));
         }
+        else p.bets.push(new BetResponse(bet.bet, bet.coin, 0));
     }
 
     return true;//player bet succesfully
@@ -98,7 +99,7 @@ var p = CreatePlayer();
 //creates an initial player for testing purposes
 function CreatePlayer(): Player {
 
-    var b = new BetResponse(2, "heads", true);//sets a default past bet
+    var b = new BetResponse(2, "heads", 1);//sets a default past bet
 
     var ba = new Array<BetResponse>();
 

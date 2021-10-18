@@ -36,8 +36,6 @@ function TestBet(bet_number: number,bet_value:number, bet_type: string): boolean
     var winCount = 0;
     var winSum = 0;
 
-    var sd = Array<number>(bet_number).fill(0);
-
     for (var i = 0; i < bet_number; ++i) {
 
         var b = new BetData(bet_value, bet_type);
@@ -48,7 +46,6 @@ function TestBet(bet_number: number,bet_value:number, bet_type: string): boolean
             ++winCount;
         }
 
-        sd[i] = winSum;
     }
 
     console.log("<--------------------------------------->");
@@ -58,14 +55,9 @@ function TestBet(bet_number: number,bet_value:number, bet_type: string): boolean
     console.log("averageWin = " + winSum / bet_number);
     console.log("averagePositiveWin = " + winSum / winCount);
 
-    sd = sd.map(x => Math.abs(x - (winSum / bet_number)));
-    sd = sd.map(x => Math.pow(x,2));
-
     var standardDeviation = 0;
-
-    for (var i = 0; i < bet_number; ++i) {
-        standardDeviation += sd[i];
-    }
+    standardDeviation += (bet_value * 2 - (winSum / bet_number)) * winCount;
+    standardDeviation += (winSum / bet_number) * (bet_number - winCount);
 
     console.log("standardDeviationOfWin = " + (Math.sqrt(standardDeviation / bet_number)));
     console.log("<--------------------------------------->");

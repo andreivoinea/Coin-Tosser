@@ -70,9 +70,10 @@ async function GetPlayerData() {
 }
 
 //parses a result string from a bet result
-function ParseResult(result:boolean):string {
-    if (result) return "Won!";
-    return "Lost";
+function ParseResult(result: number): string {
+    if (result == 1) return "Won!";
+    if (result == -1) return "Lost";
+    return "Draw";
 }
 
 //handles toggle button for bet type selection

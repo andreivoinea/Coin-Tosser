@@ -48,9 +48,6 @@
     <TypeScriptCompile Include="server\client.ts">
       <SubType>Code</SubType>
     </TypeScriptCompile>
-    <TypeScriptCompile Include="server\database.ts">
-      <SubType>Code</SubType>
-    </TypeScriptCompile>
     <TypeScriptCompile Include="tests\unit test.ts">
       <SubType>Code</SubType>
       <TestFramework>Jasmine</TestFramework>

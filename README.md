@@ -80,7 +80,7 @@ After the project files have been compiled with
 ```
 npm run build
 ```
-Just run in the folder
+Just navigate to the folder and run
 ```
 jasmine
 ```

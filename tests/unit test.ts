@@ -49,6 +49,8 @@ function TestBet(bet_number: number,bet_value:number, bet_type: string): boolean
     }
 
     console.log("<--------------------------------------->");
+    console.log("Statistics for betting on " + bet_type + ", with  " + bet_value + " coins, running for " + bet_number +" times");
+    console.log("<--------------------------------------->");
     console.log("totalBet = " + totalBet);
     console.log("totalWin = " + winSum);
     console.log("hitRate = " + winCount / bet_number);

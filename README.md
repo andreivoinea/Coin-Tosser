@@ -14,7 +14,7 @@ Navigate to the folder you saved the project and open "Coin Tosser.sln"
 
  ### Step 3 ###
 
-In the <b>Solution Explorer</b> find <i>"npm"</i> under <i>"Coin Tosser"</i>. Right click <i>npm</i> and press "Update npm packages"
+In the <b>Solution Explorer</b> find <i>"npm"</i> under <i>"Coin Tosser"</i>. Right click <i>"npm"</i> and press "Update npm packages"
 
 ![alt text](https://imgur.com/A5HIdyx.png)
 

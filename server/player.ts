@@ -1,30 +1,15 @@
 ﻿export class BetData {
 
     bet: number;
-    coin: CoinSelection;
+    coin: string;
 
-    SetCoin(input: string): void {
-
-        switch (input.toLowerCase()) {
-            case "heads":
-                this.coin = CoinSelection.Heads;
-                break;
-            case "tails":
-                this.coin = CoinSelection.Tails;
-                break;
-            default:
-                this.coin = CoinSelection.Heads;
-                break;
-        }
-    }
-
-    SetBet(input: number): void {
-        this.bet = input;
+    CheckCoin(input: string): boolean {
+        return input === this.coin;
     }
 
     constructor(bet_value: number, bet_type: string) {
-        this.SetBet(bet_value);
-        this.SetCoin(bet_type);
+        this.bet = bet_value;
+        this.coin = bet_type;
     }
 }
 
@@ -59,5 +44,3 @@ export class Player {
         this.bets = betList;
     }
 }
-
-enum CoinSelection { Heads, Tails};

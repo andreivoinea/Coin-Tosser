@@ -1,5 +1,9 @@
 # Load Project using Visual Studio 2019 #
  
+ ### Step 0 ###
+ 
+ Install Visual Studio Community from https://visualstudio.microsoft.com/vs/
+ 
  ### Step 1 ###
 Clone or Download the zip file to your computer
  

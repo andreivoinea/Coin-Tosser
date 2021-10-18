@@ -27,3 +27,16 @@ In the <b>Solution Explorer</b> find <i>"npm"</i> under <i>"Coin Tosser"</i>. Ri
  You are done! Now just run the project with "F10" and you are ready to bet!
 
  The client side is compiled and can be accessed through http://localhost:1337/
+
+
+# Run Statistics Module #
+
+The Statistics Module is implemented as a unit test using <i>jasmine.js</i>
+
+To run the statistics go to <b>Test</b> > <b>Test Explorer</b>
+
+![alt text](https://imgur.com/4FOUYYl.png)
+
+In the <b>Text Explorer</b> window, you can run all tests or each in particular, and the results will appear on the right hand side of the window
+
+![alt text](https://imgur.com/TrgzHxG.png)

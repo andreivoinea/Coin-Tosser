@@ -4,32 +4,18 @@
 <head>
     <meta charset="utf-8" />
     <title>Coin Tosser</title>
-    <style>
-        body {
-            background-color: powderblue;
-        }
-
-        div {
-            margin-bottom: 10px;
-        }
-
-        input:invalid + span:after {
-            content: '✖';
-            padding-left: 5px;
-        }
-
-        input:valid + span:after {
-            content: '✓';
-            padding-left: 5px;
-        }
-
-    </style>
+    <link rel="stylesheet" type="text/css" href="/webpage/style.css">
+    <script>var exports = {};</script>
+    <script type="text/javascript" src="/server/client.js"></script>
 </head>
 
 <body>
+    <div id ="ERROR"> 
+    </div>
+
     <div>
-        <button type="button" name="heads"> Heads </button>
-        <button type="button" name="tails" disabled> Tails </button>
+        <button type="button" id="heads" name="heads" onclick= "switchButton(this.name)">  Heads </button>
+        <button type="button" id="tails" name="tails" onclick= "switchButton(this.name)" disabled> Tails </button>
     </div>
 
     <div>
@@ -37,8 +23,10 @@
         <span class="validity"></span>
     </div>
 
+
+   
     <div>
-        <input type="submit">
+        <input type="submit" onclick= "sendBet()">
     </div>
 
 </body>

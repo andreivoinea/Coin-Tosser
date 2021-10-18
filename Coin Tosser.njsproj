@@ -12,7 +12,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>3ee22872-e901-43d1-8028-6f3a71fadef5</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>server.ts</StartupFile>
+    <StartupFile>server\server.ts</StartupFile>
     <StartWebBrowser>True</StartWebBrowser>
     <SearchPath>
     </SearchPath>
@@ -31,10 +31,22 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
-    <None Include="server.ts" />
+    <Content Include="webpage\index.html" />
+    <Content Include="webpage\style.css" />
+    <None Include="server\server.ts" />
     <Content Include="tsconfig.json" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="server\" />
+    <Folder Include="webpage\" />
+  </ItemGroup>
+  <ItemGroup>
+    <TypeScriptCompile Include="server\player.ts" />
+    <TypeScriptCompile Include="server\client.ts">
+      <SubType>Code</SubType>
+    </TypeScriptCompile>
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
   <ProjectExtensions>

@@ -25,3 +25,5 @@ In the <b>Solution Explorer</b> find <i>"npm"</i> under <i>"Coin Tosser"</i>. Ri
  ### Done ###
  
  You are done! Now just run the project with "F10" and you are ready to bet!
+
+ The client side is compiled and can be accessed through http://localhost:1337/

@@ -31,6 +31,7 @@
     <DebugSymbols>true</DebugSymbols>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="spec\support\jasmine.json" />
     <Content Include="webpage\index.html" />
     <Content Include="webpage\style.css" />
     <None Include="server\server.ts" />
@@ -39,6 +40,8 @@
     <Content Include="README.md" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="spec\" />
+    <Folder Include="spec\support\" />
     <Folder Include="tests\" />
     <Folder Include="server\" />
     <Folder Include="webpage\" />

@@ -29,7 +29,7 @@ In the <b>Solution Explorer</b> find <i>"npm"</i> under <i>"Coin Tosser"</i>. Ri
  The client side is compiled and can be accessed through http://localhost:1337/
 
 
-## Run Statistics Module ##
+## Run Statistics Module (Visual Studio) ##
 
 The Statistics Module is implemented as a unit test using <i>jasmine.js</i>
 
@@ -73,3 +73,15 @@ npm run build
  The client side is compiled and can be accessed through http://localhost:1337/
  
  To close the server press Ctrl + C in the terminal.
+
+## Run Statistics Module (Terminal) ##
+
+After the project files have been compiled with 
+```
+npm run build
+```
+Just run in the folder
+```
+jasmine
+```
+To see the statistics for the unit tests
